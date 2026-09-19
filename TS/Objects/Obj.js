@@ -7,12 +7,15 @@
 //   name: "Jeevan",
 //   age: 36,
 // };
+const arr = ["Mon", "Wed"];
 const obj = {
-    name: { fName: "Aditya", lName: "Birla" },
-    age: 29,
-    country: "India",
+    [arr[0]]: {
+        Open: "6:00AM",
+        Close: "8:00PM",
+    },
+    [arr[1]]: {
+        Open: "7:00AM",
+        Close: "7:00PM",
+    },
 };
-function personData(details) {
-    return `${details.name.fName} ${details.name.lName}`;
-}
-console.log(personData(obj));
+console.log(obj);

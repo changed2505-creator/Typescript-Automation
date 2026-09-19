@@ -46,11 +46,31 @@
 // }
 // console.log(twofer());
 // console.log(twofer("Elton"));
-function isLeapyear(year) {
-    if (year % 4 === 0) {
-        return true;
-    }
-    return false;
+// function isLeapyear(year: number): boolean {
+//   if (year % 4 === 0) {
+//     return true;
+//   }
+//   return false;
+// }
+// console.log(isLeapyear(2012));
+// console.log(isLeapyear(2013));
+// const add = (num1: number, num2: number): number => {
+//   return num1 + num2;
+// };
+// const obj = (main: {
+//   one: number;
+//   two: number;
+// }): { one: number; two: number } => {
+//   return { one: main.one, two: main.two };
+// };
+// type div = (a: number, b: number) => number;
+// const opr: div = (a, b) => a / b;
+function machine(fruit) {
+    return fruit * 5;
 }
-console.log(isLeapyear(2012));
-console.log(isLeapyear(2013));
+function processor(apple, banana) {
+    const appleP = machine(apple);
+    const bananaP = machine(banana);
+    return `Tital apple pieces:${appleP}\nTotal banana pieces:${bananaP}`;
+}
+console.log(processor(5, 4));
