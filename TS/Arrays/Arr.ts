@@ -69,7 +69,7 @@
 
 // ------------------------------------------
 
-let arr: string[] = ["a", "b", "c", "d", "e"];
+// let arr: string[] = ["a", "b", "c", "d", "e"];
 // console.log(arr.slice(2), arr);
 // console.log(arr.splice(2), arr); Mutates
 // console.log(arr.reverse(), arr); Mutates
