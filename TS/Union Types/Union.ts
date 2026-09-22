@@ -55,39 +55,41 @@
 
 // ----------------------------------Literal types
 
-const highScore: number | boolean = 10;
+// const highScore: number | boolean = 10;
 
-const stuff: (number | string)[] = [];
+// const stuff: (number | string)[] = [];
 
-type SkillLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert";
+// type SkillLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert";
 
-type SkiSchoolStudent = {
-  name: string;
-  age: number;
-  sport: "ski" | "snowboard";
-  level: SkillLevel;
-};
+// type SkiSchoolStudent = {
+//   name: string;
+//   age: number;
+//   sport: "ski" | "snowboard";
+//   level: SkillLevel;
+// };
 
-type RGB = {
-  r: number;
-  g: number;
-  b: number;
-};
-type HSL = {
-  h: number;
-  s: number;
-  l: number;
-};
-const colors: (RGB | HSL)[] = [];
+// type RGB = {
+//   r: number;
+//   g: number;
+//   b: number;
+// };
+// type HSL = {
+//   h: number;
+//   s: number;
+//   l: number;
+// };
+// const colors: (RGB | HSL)[] = [];
 
-function greet(greetings: string | string[]): void {
-  if (typeof greetings === "string") {
-    console.log(`Hello, ${greetings}`);
-  } else {
-    greetings.forEach((element) => {
-      console.log(`Hello, ${element}`);
-    });
-  }
-}
-greet("Sneha");
-greet(["Sneha", "Suresh", "Nithin"]);
+// function greet(greetings: string | string[]): void {
+//   if (typeof greetings === "string") {
+//     console.log(`Hello, ${greetings}`);
+//   } else {
+//     greetings.forEach((element) => {
+//       console.log(`Hello, ${element}`);
+//     });
+//   }
+// }
+// greet("Sneha");
+// greet(["Sneha", "Suresh", "Nithin"]);
+
+// ------------------------------Excersises
