@@ -47,22 +47,22 @@
 
 // const n = getName({ Name: "Helo" }, { Age: 44 });
 
-interface long {
-  length: number;
-}
-function printLength<T extends long>(item: T): number {
-  return item.length;
-}
+// interface long {
+//   length: number;
+// }
+// function printLength<T extends long>(item: T): number {
+//   return item.length;
+// }
 
-console.log(printLength("Hello"));
+// console.log(printLength("Hello"));
 
 // ---------------------------------------------
 
-// function createNumber<T = string>(): T[] {
-//   return [];
-// }
-// const cr = createNumber();
-// cr.push("add");
+function createNumber<T = string>(): T[] {
+  return [];
+}
+const cr = createNumber();
+cr.push("add");
 
 // -----------------------------------------------
 
