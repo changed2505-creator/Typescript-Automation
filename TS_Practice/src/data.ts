@@ -2,7 +2,7 @@ export interface ToDo {
   id: number;
   task: string;
 }
-export let TODO: ToDo[] = [];
+let TODO: ToDo[] = [];
 
 export function addTask(task: string) {
   const newTask = { id: Math.floor(Math.random() * 55), task };
