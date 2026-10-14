@@ -61,8 +61,8 @@ var todo_default = router;
 
 // src/test.ts
 var app = express2();
-app.use(todo_default);
 app.use(express2.json());
+app.use(todo_default);
 app.use((err, req, res, next) => {
   res.status(500).json({ Message: "Error!!!" });
 });

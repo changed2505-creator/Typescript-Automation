@@ -33,8 +33,8 @@ import express, {
 import todoRoutes from "../routes/todo.js";
 
 const app = express();
-app.use(todoRoutes);
 app.use(express.json());
+app.use(todoRoutes);
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ Message: "Error!!!" });
 });
