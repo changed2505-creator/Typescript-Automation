@@ -5,7 +5,12 @@ import {
   getAllTask,
   getTask,
   updateTask,
-} from "../src/data.js";
+} from "../data.js";
+
+// enum Task_Type {
+//   Work,
+//   Activity,
+// }
 
 const router = express.Router();
 

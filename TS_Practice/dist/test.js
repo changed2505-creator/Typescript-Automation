@@ -1,7 +1,7 @@
 // src/test.ts
 import express2 from "express";
 
-// routes/todo.ts
+// src/routes/todo.ts
 import express from "express";
 
 // src/data.ts
@@ -31,7 +31,7 @@ function updateTask(id, task) {
   return TODO;
 }
 
-// routes/todo.ts
+// src/routes/todo.ts
 var router = express.Router();
 router.post("/TODO", (req, res) => {
   const getTask2 = req.body.task;
@@ -66,4 +66,6 @@ app.use(todo_default);
 app.use((err, req, res, next) => {
   res.status(500).json({ Message: "Error!!!" });
 });
-app.listen(3e3);
+app.listen(3e3, () => {
+  console.log("Server is listening on http://localhost:3000");
+});

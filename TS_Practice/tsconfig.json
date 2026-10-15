@@ -1,7 +1,7 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    "rootDir": ".",
+    "rootDir": "./src",
     "outDir": "./dist",
     "module": "nodenext",
     "target": "es2022",
@@ -12,11 +12,13 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "strict": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": true, //Type annotation check
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  },
-  "include": ["src", "routes"]
+    // "allowImportingTsExtensions": true, //importing from .ts files
+    // "noEmit": true, //Don't comiple the code to .js
+    // "erasableSyntaxOnly": true //Don't allow unsupported constructs
+  }
 }

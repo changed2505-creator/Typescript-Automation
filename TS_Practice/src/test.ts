@@ -30,7 +30,7 @@ import express, {
   type Response,
   type NextFunction,
 } from "express";
-import todoRoutes from "../routes/todo.js";
+import todoRoutes from "./routes/todo.js";
 
 const app = express();
 app.use(express.json());
@@ -38,4 +38,6 @@ app.use(todoRoutes);
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ Message: "Error!!!" });
 });
-app.listen(3000);
+app.listen(3000, () => {
+  console.log("Server is listening on http://localhost:3000");
+});
