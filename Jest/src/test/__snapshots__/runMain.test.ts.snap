@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Spying on run 1`] = `
+[MockFunction] {
+  "calls": [
+    [],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": "Running!!!",
+    },
+  ],
+}
+`;
