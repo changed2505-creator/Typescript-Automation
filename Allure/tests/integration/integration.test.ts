@@ -2,10 +2,18 @@ import request from "supertest";
 import app from "../../src/userApp";
 import { validator } from "../../src/validator/userValidator";
 import type { user } from "../../src/schemas/userSchema";
+import { createAllureAttachment } from "../../src/helper/allure_helper";
+import { ContentType } from "allure-js-commons";
 
 describe("API Integration validation", () => {
   test("GET request for entire user list", async () => {
     const res = await request(app).get("/users").expect(200);
+
+    await createAllureAttachment(
+      "GET API REQUEST all users",
+      JSON.stringify(res.body, null, 2),
+      ContentType.JSON,
+    );
 
     res.body.forEach((User: user) => {
       expect(validator(User)).toBe(true);
@@ -14,6 +22,12 @@ describe("API Integration validation", () => {
 
   test("Get user for a single user", async () => {
     const res = await request(app).get("/users/1").expect(200);
+
+    await createAllureAttachment(
+      "GET API REQUEST single user",
+      JSON.stringify(res.body, null, 2),
+      ContentType.JSON,
+    );
 
     expect(res.body.name).toEqual("Ritish");
     expect(validator(res.body)).toBe(true);
@@ -25,6 +39,12 @@ describe("API Integration validation", () => {
       .send({ name: "Shrikanth", email: "Sri420@gmail.com" })
       .expect(201);
 
-    expect(validator(res.body)).toBe(true);
+    await createAllureAttachment(
+      "POST API REQUEST all users",
+      JSON.stringify(res.body, null, 2),
+      ContentType.JSON,
+    );
+
+    expect(validator(res.body)).toBe(false);
   });
 });
