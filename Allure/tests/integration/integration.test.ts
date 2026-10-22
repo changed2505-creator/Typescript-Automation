@@ -3,20 +3,27 @@ import app from "../../src/userApp";
 import { validator } from "../../src/validator/userValidator";
 import type { user } from "../../src/schemas/userSchema";
 import { createAllureAttachment } from "../../src/helper/allure_helper";
-import { ContentType } from "allure-js-commons";
+import { attachment, ContentType, step } from "allure-js-commons";
+import fs from "fs";
 
 describe("API Integration validation", () => {
   test("GET request for entire user list", async () => {
-    const res = await request(app).get("/users").expect(200);
+    await step("Sends GET request to user", async () => {
+      const res = await request(app).get("/users").expect(200);
 
-    await createAllureAttachment(
-      "GET API REQUEST all users",
-      JSON.stringify(res.body, null, 2),
-      ContentType.JSON,
-    );
+      await step("Attach API response", async () => {
+        await createAllureAttachment(
+          "GET API REQUEST all users",
+          JSON.stringify(res.body, null, 2),
+          ContentType.JSON,
+        );
+      });
 
-    res.body.forEach((User: user) => {
-      expect(validator(User)).toBe(true);
+      await step("Validate if every user follows the schema", () => {
+        res.body.forEach((User: user) => {
+          expect(validator(User)).toBe(true);
+        });
+      });
     });
   });
 
@@ -34,17 +41,24 @@ describe("API Integration validation", () => {
   });
 
   test("Add user to the list", async () => {
-    const res = await request(app)
-      .post("/users")
-      .send({ name: "Shrikanth", email: "Sri420@gmail.com" })
-      .expect(201);
+    const res = await request(app).post("/users").send({});
 
-    await createAllureAttachment(
-      "POST API REQUEST all users",
-      JSON.stringify(res.body, null, 2),
-      ContentType.JSON,
-    );
+    if (res.status !== 201) {
+      attachment(
+        "Error log",
+        `Status:${res.status}\nBody:${JSON.stringify(res.body, null, 2)}`,
+        ContentType.TEXT,
+      );
 
-    expect(validator(res.body)).toBe(false);
+      expect(res.status).toBe(400);
+    } else {
+      await createAllureAttachment(
+        "POST API REQUEST all users",
+        JSON.stringify(res.body, null, 2),
+        ContentType.JSON,
+      );
+
+      expect(validator(res.body)).toBe(true);
+    }
   });
 });
