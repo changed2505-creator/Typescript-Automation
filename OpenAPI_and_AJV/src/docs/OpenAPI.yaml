@@ -1,0 +1,98 @@
+openapi: 3.0.0
+
+info:
+  title: User Management API
+  version: 1.0.0
+  description: Manageing the user data and handling the requests
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /users:
+    get:
+      summary: Get all user data
+
+      responses:
+        "200":
+          description: Successfully retrieved all users
+
+          content:
+            application/json:
+              schema:
+                type: array
+
+                items:
+                  $ref: "#/components/schemas/UserSchema"
+
+    post:
+      summary: Add user to the list
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+            schema:
+              type: object
+
+              properties:
+                name:
+                  type: string
+
+                email:
+                  type: string
+
+      responses:
+        "201":
+          description: User creation verification
+
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSchema"
+
+        "400":
+          description: Invalid user data
+
+  /users/{id}:
+    get:
+      summary: Get an user by id
+
+      parameters:
+        - in: path
+          name: id
+          description: User id
+          required: true
+
+          schema:
+            type: integer
+
+      responses:
+        "200":
+          description: Getting an valid user
+
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSchema"
+
+        "404":
+          description: User not found
+
+components:
+  schemas:
+    UserSchema:
+      type: object
+
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+
+      required:
+        - id
+        - name

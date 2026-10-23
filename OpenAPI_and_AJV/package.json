@@ -1,0 +1,34 @@
+{
+  "name": "allure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "tsx src/server.ts"
+  },
+  "keywords": [],
+  "type": "module",
+  "devDependencies": {
+    "@types/ajv": "^0.0.5",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.5",
+    "@types/supertest": "^7.2.1",
+    "@types/swagger-ui-express": "^4.1.8",
+    "@types/yamljs": "^0.2.34",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "allure-commandline": "^2.46.1",
+    "allure-jest": "^3.14.0",
+    "allure-js-commons": "^3.14.0",
+    "express": "^5.3.0",
+    "jest": "^30.5.2",
+    "supertest": "^7.3.1",
+    "swagger-ui-express": "^5.0.1",
+    "ts-jest": "^29.4.15",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "yamljs": "^0.3.0"
+  }
+}
