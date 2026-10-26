@@ -9,7 +9,6 @@
   "keywords": [],
   "type": "module",
   "devDependencies": {
-    "@apidevtools/json-schema-ref-parser": "^16.0.5",
     "@types/ajv": "^0.0.5",
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
