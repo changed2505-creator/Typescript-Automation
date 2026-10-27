@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: User API
+  version: 1.0.0
+  description: User management sytem API's
+servers:
+  - url: http://localhost:3000
+paths:
+  /users:
+    get:
+      summary: Fetching all users data
+      responses:
+        "200":
+          description: Successfull retrival
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserSchema"
+
+    post:
+      summary: Add an usre to the list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        "201":
+          description: Successfull user addition
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSchema"
+        "400":
+          description: Inavalid user data(schema)
+
+  /users/{id}:
+    get:
+      summary: Fetching user as per the ID provided
+      parameters:
+        - in: path
+          name: id
+          description: User ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Fetched user Successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSchema"
+
+        "404":
+          description: User not found
+
+components:
+  schemas:
+    UserSchema:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+      required:
+        - id
+        - name
