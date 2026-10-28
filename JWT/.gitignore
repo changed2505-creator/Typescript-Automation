@@ -17,3 +17,7 @@ allure-report/
 .DS_Store
 Thumbs.db
 
+.env
+
+
+

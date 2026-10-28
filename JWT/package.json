@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "tsx src/server.ts",
     "test": "jest"
   },
   "keywords": [],
@@ -22,6 +23,7 @@
     "allure-jest": "^3.14.0",
     "allure-js-commons": "^3.14.0",
     "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.9",
     "express": "^5.3.0",
     "jest": "^30.5.2",
     "jsonwebtoken": "^9.0.3",

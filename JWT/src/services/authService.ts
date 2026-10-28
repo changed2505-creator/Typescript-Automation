@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import { config } from "../Config/env";
 
-const SECRET_KEY = "One-Piece";
+const SECRET_KEY = config.JWT_SECRET;
 
 export const users = [
   {
@@ -13,7 +14,7 @@ export const users = [
 
 export const createJWT = (userID: number) => {
   return jwt.sign({ userID }, SECRET_KEY, {
-    expiresIn: "1h",
+    expiresIn: config.TOKEN_EXPIRY,
   });
 };
 

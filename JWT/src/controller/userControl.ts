@@ -1,11 +1,7 @@
 import { type Request, type Response } from "express";
 import { valiadtion } from "../validator/userValidator";
 
-let validator: any;
-
-beforeAll(async () => {
-  validator = await valiadtion();
-});
+let validator: any = valiadtion();
 
 export interface user {
   id: number;
