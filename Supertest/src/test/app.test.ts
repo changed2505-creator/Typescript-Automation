@@ -34,14 +34,14 @@ describe("Sending a POST Request", () => {
       Age: 45,
     };
     const data = await request(app)
-      .post("/Intro")
+      .post("/Intro?Name=me")
       .send(details)
       .expect("Content-Type", /json/)
       .expect(201);
 
     expect(data.body[1]).toHaveProperty("details");
     expect(data.body).toMatchObject([
-      { Introduction: `I am Nobody` },
+      { Introduction: `I am me` },
       {
         details: {
           Name: "Sharath",

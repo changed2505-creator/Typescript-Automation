@@ -4,7 +4,6 @@ import { validator } from "../../src/validator/userValidator";
 import type { user } from "../../src/schemas/userSchema";
 import { createAllureAttachment } from "../../src/helper/allure_helper";
 import { attachment, ContentType, step } from "allure-js-commons";
-import fs from "fs";
 
 describe("API Integration validation", () => {
   test("GET request for entire user list", async () => {

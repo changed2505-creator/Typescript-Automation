@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --noEmit && esbuild src/test.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/test.js",
+    "build": "tsc --noEmit && esbuild src/app.ts --bundle --packages=external --platform=node --format=esm --outfile=dist/app.js",
     "prestart": "npm run build",
-    "start": "node dist/test.js"
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "type": "module",
