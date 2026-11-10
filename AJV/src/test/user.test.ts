@@ -16,7 +16,7 @@ describe("Schema Validation", () => {
       id: 321,
       name: "Hunger",
     };
-    expect(testUserSchema(user)).toBe(false);
+    expect(() => testUserSchema(user)).toThrow(/Validation errors/);
   });
 
   test("Wrong format", () => {
@@ -26,6 +26,6 @@ describe("Schema Validation", () => {
       age: 42,
       email: "maihuchor420--hi-there",
     };
-    expect(testUserSchema(user)).toBe(false);
+    expect(() => testUserSchema(user)).toThrow(/Validation errors/);
   });
 });

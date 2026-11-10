@@ -60,6 +60,7 @@ test("To test the mock function", () => {
   forEach([1, 2], mocking);
   expect(mocking.mock.results[1]?.value).toBe(7);
   expect(mocking.mock.calls[0]?.[0]).toBe(1);
+  expect(mocking.mock.lastCall?.[0]).toBe(2);
 });
 
 test("Spying on run", () => {

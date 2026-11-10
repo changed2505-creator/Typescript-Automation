@@ -9,7 +9,8 @@ const validator = ajv.compile(userSchema);
 export function testUserSchema(data: unknown): data is user {
   const validation = validator(data);
   if (!validation) {
-    console.error("Errors:", validator.errors);
+    const error = ajv.errorsText(validator.errors, { separator: "\n" });
+    throw new Error(`Validation errors:${error}`);
   }
   return validation;
 }

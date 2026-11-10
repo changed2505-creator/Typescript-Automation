@@ -1,13 +1,16 @@
 export function multiply2Num(a: number, b: number): number {
   return a * b;
 }
+
 interface NAME {
   Name: string;
   Age: number;
 }
+
 export function storeObject(name: string, age: number): NAME {
   return { Name: name, Age: age };
 }
+// --------------------------------------
 export function fetchData(): Promise<string> {
   return new Promise((res, rej) => {
     const ran = Math.floor(Math.random() * 10 + 1);
@@ -20,7 +23,7 @@ export function fetchData(): Promise<string> {
     }
   });
 }
-
+// -------------------------------------------
 export function forEach<T>(vals: T[], call: (val: T) => void): void {
   for (const val of vals) {
     call(val);
