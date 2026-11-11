@@ -13,7 +13,7 @@ export const users = [
 ];
 
 export const createJWT = (userID: number) => {
-  return jwt.sign({ userID }, SECRET_KEY, {
+  return jwt.sign({ userID, role: "admin" }, SECRET_KEY, {
     expiresIn: config.TOKEN_EXPIRY,
   });
 };

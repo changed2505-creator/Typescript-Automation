@@ -3,7 +3,7 @@ import addFormats from "ajv-formats";
 import fs from "fs";
 import YAML from "yaml";
 
-export async function valiadtion() {
+export function valiadtion() {
   const yamlToText = fs.readFileSync("./src/docs/OpenAPI_schema.yaml", "utf8");
 
   const doc = YAML.parse(yamlToText);
